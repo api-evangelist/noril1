@@ -1,7 +1,19 @@
 aid: noril1
-name: Noril1
-description: Noril1 is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: Nori
+description: >-
+  Nori (Nori Robotics) is a Y Combinator (Summer 2026) hard-tech company in San
+  Francisco building affordable bimanual humanoid home robots — the NORI L2, a
+  sub-$1,300 wheeled robot with dual Z-axis lift arms that autonomously handles
+  household chores like loading dishes, making beds, food prep, and cleaning,
+  with multiple units able to collaborate on coordinated tasks. Beyond the
+  hardware, Nori publishes a developer surface: the @nori/sdk robot-local
+  teleoperation SDK connects to a robot over WebRTC to stream video and
+  telemetry and drive it from the browser in ~20 lines, with all safety
+  mechanisms (clamping, watchdog, E-STOP, motor torque lifecycle) enforced on
+  the robot's control daemon. The SDK targets the nori-protocol v1 wire format
+  (NDJSON over a WebRTC data channel to the daemon on port 7777), is Apache-2.0
+  licensed, and is distributed to a small set of collaborating developers as a
+  tarball rather than on public npm.
 url: https://raw.githubusercontent.com/api-evangelist/noril1/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +21,93 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://docs.norirobotics.com/nori-logo.png
 tags:
 - Company
-apis: []
+- Robotics
+- Humanoid Robots
+- Teleoperation
+- SDK
+- WebRTC
+- Hardware
+- Home Automation
+- Developer Tools
+- Y Combinator
+apis:
+- name: Nori Teleoperation SDK
+  description: >-
+    @nori/sdk — robot-local teleoperation SDK. Connects to a Nori robot over
+    WebRTC, receives video and telemetry, and drives it from the browser via the
+    RemoteTeleop client. Signaling over the reference Supabase transport or
+    bring-your-own; NDJSON control at 50Hz to the robot daemon (nori-protocol
+    v1). There is no cloud REST base URL — the SDK speaks WebRTC to a local robot
+    daemon, so no baseURL is published.
+  humanURL: https://docs.norirobotics.com/sdk/
+  tags:
+  - SDK
+  - Teleoperation
+  - WebRTC
+  properties:
+  - type: Documentation
+    url: https://docs.norirobotics.com/sdk/
+  - type: GettingStarted
+    url: https://docs.norirobotics.com/sdk/quickstart
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1
+common:
+- type: Website
+  url: https://www.norirobotics.com/
+- type: DeveloperPortal
+  url: https://docs.norirobotics.com/
+- type: Documentation
+  url: https://docs.norirobotics.com/
+- type: APIReference
+  url: https://docs.norirobotics.com/sdk/
+- type: GettingStarted
+  url: https://docs.norirobotics.com/guide/
+- type: Support
+  url: https://docs.norirobotics.com/troubleshooting/getting-help
+- type: GitHubOrganization
+  url: https://github.com/Nori-Robotics
+- type: X
+  url: https://x.com/NoriRobotics
+- type: Discord
+  url: https://discord.gg/dH8DwTpYD
+- type: Packages
+  url: packages/noril1-packages.yml
+- type: SDKs
+  url: packages/noril1-packages.yml
+- type: WellKnown
+  url: well-known/noril1-well-known.yml
+- type: LLMsTxt
+  url: llms/noril1-llms.txt
+- type: Lifecycle
+  url: lifecycle/noril1-lifecycle.yml
+- type: Conventions
+  url: conventions/noril1-conventions.yml
+- type: Conformance
+  url: conformance/noril1-conformance.yml
+- type: DomainSecurity
+  url: security/noril1-domain-security.yml

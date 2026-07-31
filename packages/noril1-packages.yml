@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.norirobotics.com/sdk/
+notes: >-
+  @nori/sdk is a first-party, Apache-2.0 client SDK but is NOT published to
+  public npm (registry returns 404). It is distributed to a small set of
+  collaborating developers as a tarball provided by Nori. The GitHub
+  organization Nori-Robotics hosts related source (a fork of huggingface/leLab
+  and the XLeRobot hardware project). Registry entry marked private-tarball to
+  reflect the real distribution channel; official is true (first-party).
+packages:
+- language: javascript
+  registry: private-tarball
+  name: "@nori/sdk"
+  url: https://docs.norirobotics.com/sdk/install
+  install: "install from the tarball Nori provides (not on public npm)"
+  official: true
+  license: Apache-2.0
+  entry_points:
+  - "@nori/sdk"
+  - "@nori/sdk/supabase"
+- language: python
+  registry: github
+  name: XLeRobot
+  url: https://github.com/Nori-Robotics/XLeRobot
+  install: "clone https://github.com/Nori-Robotics/XLeRobot"
+  official: true
+  notes: "Practical dual-arm mobile home robot project (hardware + control)."
+- language: typescript
+  registry: github
+  name: Nori-Lab
+  url: https://github.com/Nori-Robotics/Nori-Lab
+  install: "clone https://github.com/Nori-Robotics/Nori-Lab"
+  official: true
+  notes: "Nori's fork of LeLab — a web UI on top of LeRobot."

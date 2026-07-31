@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.norirobotics.com/sdk/
+versioning:
+  scheme: protocol-major
+  wire_protocol: nori-protocol v1
+  protocol_constant: NORI_PROTOCOL_VERSION
+  sdk_version: v0
+  compatibility: >-
+    The SDK targets nori-protocol v1; a robot daemon on a different major version
+    rejects the connection at the handshake. The daemon advertises its limits via
+    robotInfo().watchdogProfile and descriptor.ranges rather than negotiating them.
+  status: >-
+    v0 — for a small set of collaborating developers, not a public release. The
+    core teleop + VR surface is stable; the two-way call API (joinCall / leaveCall
+    / mic / camera on RemoteTeleop) is present but experimental and may change.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  No status page, SLA, or formal deprecation policy is published (all /status
+  probes returned 404). Version discipline is enforced at the protocol level via
+  the handshake major-version check rather than documented lifecycle policy.

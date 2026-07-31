@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.norirobotics.com/sdk/
+summary: >-
+  Cross-cutting semantics for the @nori/sdk robot-local teleoperation SDK. This
+  is not a request/response REST API — it is a real-time WebRTC session between a
+  browser client (RemoteTeleop) and a robot control daemon, so the conventions
+  below cover connectivity, the handshake, streaming control, and the safety
+  contract rather than pagination/idempotency.
+transport:
+  type: WebRTC
+  data_channel_format: NDJSON
+  control_rate: 50Hz
+  daemon_port: 7777
+  pipeline: "app -> @nori/sdk (RemoteTeleop) -> WebRTC data channel -> Pi bridge -> nori daemon (webrtc_robot)"
+connectivity:
+  modes: [LAN, STUN, TURN]
+  reference_transport: Supabase signaling (room + token provisioned by Nori)
+  byo: bring-your-own signaling supported (Advanced > Bring your own signaling)
+handshake:
+  description: >-
+    On connect the daemon returns robotInfo() including a watchdogProfile and
+    descriptor.ranges. Limits are disclosed, not negotiated — there is
+    deliberately no API to change them.
+  protocol_check: daemon on a different nori-protocol major rejects the connection
+safety_contract:
+  principle: >-
+    Every safety mechanism lives on the robot; none are negotiable from the SDK.
+    Clamping, watchdog, E-STOP, stall handling, and the motor torque lifecycle
+    run in the robot's control daemon. No message the SDK can send disables or
+    loosens them.
+  telemetry_field: telemetry.safety (SafetyState)
+media_and_sensing:
+  video: WebRTC video track
+  audio: two-way call audio (experimental) plus sendClipAudio clips
+  perception: perception stream
+  consent_gate: >-
+    joinCall() rings an accept prompt at the robot; room audio stays silent until
+    a person there accepts. Audio clips via sendClipAudio are exempt.
+idempotency:
+  supported: false
+  notes: Real-time streaming teleoperation; no idempotency-key contract applies.
+pagination:
+  supported: false
+error_semantics:
+  notes: Errors surface via telemetry.safety states and handshake rejection; no RFC 9457 problem+json envelope (no REST API).
+cross_links:
+  lifecycle: lifecycle/noril1-lifecycle.yml
+  packages: packages/noril1-packages.yml
+  conformance: conformance/noril1-conformance.yml

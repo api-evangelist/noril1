@@ -1,0 +1,36 @@
+# Nori
+
+> Nori (Nori Robotics) is a Y Combinator (Summer 2026) hard-tech company building affordable bimanual humanoid home robots — the NORI L2, a sub-$1,300 wheeled robot with dual Z-axis lift arms that autonomously handles household chores. Nori also ships @nori/sdk, an Apache-2.0 robot-local teleoperation SDK that connects to a robot over WebRTC to stream video/telemetry and drive it from the browser in ~20 lines. This is an API Evangelist enrichment profile generated from the public developer surface.
+
+## Product
+- [Nori website (NORI L2 robot, pre-order)](https://www.norirobotics.com/)
+- [Pre-order the NORI L2](https://www.norirobotics.com/preorder)
+
+## Developer docs
+- [Nori Docs (developer portal)](https://docs.norirobotics.com/)
+- [Guide — install the desktop app, set up leader arms/cameras, run your first teleop session](https://docs.norirobotics.com/guide/)
+- [Install](https://docs.norirobotics.com/guide/install)
+- [First session](https://docs.norirobotics.com/guide/first-session)
+
+## SDK (@nori/sdk)
+- [SDK overview — WebRTC teleoperation, NDJSON control at 50Hz to the robot daemon](https://docs.norirobotics.com/sdk/)
+- [Quick start — a connected, driving robot in one code block](https://docs.norirobotics.com/sdk/quickstart)
+- [The safety contract — all safety mechanisms enforced on the robot](https://docs.norirobotics.com/sdk/safety)
+
+## Support
+- [Troubleshooting / getting help](https://docs.norirobotics.com/troubleshooting/getting-help)
+- [Discord community](https://discord.gg/dH8DwTpYD)
+
+## Source
+- [GitHub organization — Nori-Robotics](https://github.com/Nori-Robotics)
+- [XLeRobot — dual-arm mobile home robot](https://github.com/Nori-Robotics/XLeRobot)
+- [Nori-Lab — fork of LeLab (web UI on LeRobot)](https://github.com/Nori-Robotics/Nori-Lab)
+
+## Social
+- [X / Twitter](https://x.com/NoriRobotics)
+- [LinkedIn](https://linkedin.com/company/norirobotics/)
+
+## Notes
+- The SDK is distributed as a tarball to a small set of collaborating developers; it is NOT on public npm.
+- The SDK speaks WebRTC to a local robot daemon (nori-protocol v1, port 7777) — there is no hosted REST API base URL.
+- No OpenAPI, AsyncAPI, MCP server, OAuth scopes, /.well-known documents, status page, or changelog were found at enrichment time.
